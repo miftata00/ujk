@@ -46,6 +46,7 @@
     <h4 class="text-white text-center mb-4">TOKO SPORT</h4>
 
     <a href="{{ url('/product') }}">Produk</a>
+    <a href="{{ url('/supplier') }}">Supplier</a>
     <a href="{{ url('/logout') }}">Logout</a>
 </div>
 

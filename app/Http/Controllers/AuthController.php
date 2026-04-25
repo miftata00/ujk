@@ -48,17 +48,18 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-    $request->validate([
-    'username' => 'required|min:4',
-    'password' => 'required|min:4|confirmed',
-], [
-    'username.required' => 'Username wajib diisi',
-    'username.min' => 'Username minimal 4 karakter',
+        $request->validate([
+            'username' => 'required|min:4|unique:users,username',
+            'password' => 'required|min:4|confirmed',
+        ], [
+            'username.required' => 'Username wajib diisi',
+            'username.min' => 'Username minimal 4 karakter',
+            'username.unique' => 'Username sudah digunakan, silakan pakai username lain',
 
-    'password.required' => 'Password wajib diisi',
-    'password.min' => 'Password minimal 4 karakter',
-    'password.confirmed' => 'Konfirmasi password tidak sama',
-]);
+            'password.required' => 'Password wajib diisi',
+            'password.min' => 'Password minimal 4 karakter',
+            'password.confirmed' => 'Konfirmasi password tidak sama',
+        ]);
 
         User::create([
             'username' => $request->username,

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 
 
 // =====================
@@ -33,6 +34,9 @@ Route::middleware(['auth'])->group(function () {
 
     // CRUD Produk
     Route::resource('product', ProductController::class);
+    // Supplier
+    Route::resource('supplier', SupplierController::class);
+
 
 });
 
